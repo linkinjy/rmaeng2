@@ -10,7 +10,7 @@ greco.latin(a, b, c, d, y, i, j)
 \item{a, b, c, d, y, i, j}{i,j is natural number}
 }
 \value{
-anova
+analysis of variance
 }
 \description{
 In combinatorics, a Graeco-Latin square or Euler square or orthogonal Latin squares of order n over two sets S and T, each consisting of n symbols, is an n×n arrangement of cells, each cell containing an ordered pair (s,t), where s is in S and t is in T, such that every row and every column contains each element of S and each element of T exactly once, and that no two cells contain the same ordered pair.

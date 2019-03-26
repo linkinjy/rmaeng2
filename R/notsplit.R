@@ -14,6 +14,10 @@
 #'
 #' @export
 #'
+#' @importFrom
+#' stats anova
+#' stats lm
+#'
 sp.plot3<-function(pplot,splot,y){
   name.y <- paste(deparse(substitute(y)))
   name.p <- paste(deparse(substitute(pplot)))

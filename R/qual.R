@@ -15,6 +15,11 @@
 #' qual(A,B,Y,200,2,4)
 #'
 #' @export
+#'
+#' @importFrom
+#' stats anova
+#' stats lm
+#' stats pf
 
 qual<-function(A,B,Y,r,i,j){
   v<-matrix(k$Y,i,j)

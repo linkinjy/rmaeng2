@@ -10,7 +10,7 @@ sp.plot2(pplot, splot, aplot, rplot, y)
 \item{pplot, splot, aplot, rplot, y}{abcd}
 }
 \value{
-anova
+analysis of variance
 }
 \description{
 If all arguments are stake

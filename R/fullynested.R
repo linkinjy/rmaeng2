@@ -4,7 +4,7 @@
 #'
 #' @param pplot,splot,aplot,rplot,y abcd
 #'
-#' @return anova
+#' @return analysis of variance
 #'
 #' @examples
 #' A<-rep(c(1,1,2,2,3,3,4,4),4)
@@ -15,6 +15,10 @@
 #' sp.plot2(A,B,C,R,con)
 #'
 #' @export
+#'
+#' @importFrom
+#' stats anova
+#' stats lm
 
 # fully nested
 sp.plot2<-function(pplot,splot,aplot,rplot,y){

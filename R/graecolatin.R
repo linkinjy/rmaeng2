@@ -4,7 +4,7 @@
 #'
 #' @param a,b,c,d,y,i,j i,j is natural number
 #'
-#' @return anova
+#' @return analysis of variance
 #'
 #' @examples
 #' A <- c(rep("A1",4), rep("A2",4), rep("A3",4), rep("A4",4))
@@ -15,6 +15,10 @@
 #' greco.latin(A,B,C,D,Y,4,4)
 #'
 #' @export
+#'
+#' @importFrom
+#' stats anova
+#' stats lm
 
 # graeco latin squares
 greco.latin<-function(a,b,c,d,y,i,j){

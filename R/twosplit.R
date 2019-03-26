@@ -18,6 +18,11 @@
 #'
 #' @export
 #'
+#' @importFrom
+#' stats anova
+#' stats lm
+#' stats pf
+#'
 sp.plot1<-function(block,pplot,splot,aplot,Y){
   name.y <- paste(deparse(substitute(Y)))
   name.r <- paste(deparse(substitute(block)))

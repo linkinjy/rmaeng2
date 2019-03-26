@@ -14,6 +14,10 @@
 #' latin(treat,fertil,seed,freq,5,5)
 #'
 #' @export
+#'
+#' @importFrom
+#' stats anova
+#' stats lm
 
 latin<-function(a,b,c,d,i,j){
   mydata <- data.frame(a,b,c,d)
