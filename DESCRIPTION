@@ -15,4 +15,5 @@ Imports:
   ggplot2,
   gplots,
   gridExtra,
-  dplyr
+  dplyr,
+  DescTools
