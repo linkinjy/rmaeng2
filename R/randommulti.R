@@ -26,8 +26,8 @@ random.multi <-function(fac, r=1, seed=0, std=FALSE){
 
   n<-length(fac)
 
-  #???? 2??
-  fact<-NULL
+
+    fact<-NULL
   fr1<-1:fac[1]
   k<-0
   a<-fac[1]
@@ -38,8 +38,8 @@ random.multi <-function(fac, r=1, seed=0, std=FALSE){
       fact[k]<-paste(fr1[i],j)
     }
   }
-  #???? 3?? ?̻?
-  if(n >2) {
+
+    if(n >2) {
     for(m in 3:n){
       k<-0
       fr1<-fact
