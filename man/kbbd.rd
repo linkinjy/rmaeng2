@@ -4,7 +4,7 @@
 \alias{kbbd}
 \title{kbbd}
 \usage{
-kbbd(k, n0, block, randomize, coding)
+kbbd(k, randomize)
 }
 \arguments{
 \item{k, randomize}{}
