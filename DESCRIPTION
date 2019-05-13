@@ -17,4 +17,5 @@ Imports:
   gridExtra,
   dplyr,
   DescTools,
-  rsm
+  rsm,
+  AlgDesign

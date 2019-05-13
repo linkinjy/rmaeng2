@@ -2,13 +2,12 @@
 #'
 #' design of box-behnken
 #'
-#' @param k, randomize
+#' @param k,n0,block,randomize,coding
 #'
-#' @return design of box-behnken
+#' @return std.order, run.order, level of factor
 #'
 #' @examples
-#' k==3
-#' randomize = TRUE
+#' k<-3
 #'
 #' @export
 #'
