@@ -13,7 +13,6 @@
 #'
 #' @export
 #'
-#' @importFrom
 #'
 
 fac.design<-function (levels, nVars = 0, r=1,center = TRUE, factors = "none", varNames = NULL, seed=0, std=FALSE){

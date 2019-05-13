@@ -4,7 +4,8 @@
 \alias{design.split}
 \title{design.split}
 \usage{
-design.split(trt1, trt2, r=NULL, seed=0, randomization=TRUE, std=FALSE)
+design.split(trt1, trt2, r = NULL, seed = 0, randomization = TRUE,
+  std = FALSE)
 }
 \arguments{
 \item{trt1, trt2, r, seed, randomization, std}{}

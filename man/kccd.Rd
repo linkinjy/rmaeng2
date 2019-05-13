@@ -4,10 +4,12 @@
 \alias{kccd}
 \title{kccd}
 \usage{
-kccd(basis,generators,block,n0,alpha,wbreps,bbreps,randomize,inscribed,coding,oneblock)
+kccd(basis, generators, blocks = "Block", n0 = 4,
+  alpha = "orthogonal", wbreps = 1, bbreps = 1, randomize = TRUE,
+  inscribed = FALSE, coding, oneblock = FALSE)
 }
 \arguments{
-\item{basis,generators,block,n0,alpha,wbreps,bbreps,randomize,inscribed,coding,oneblock}{}
+\item{basis, generators, block, n0, alpha, wbreps, bbreps, randomize, inscribed, coding, oneblock}{}
 }
 \value{
 std.order, run.order, level of factor
@@ -19,4 +21,5 @@ central composite design
 basis=3
 randomize=FALSE
 oneblock=TRUE
+
 }
