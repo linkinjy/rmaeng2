@@ -16,4 +16,5 @@ Imports:
   gplots,
   gridExtra,
   dplyr,
-  DescTools
+  DescTools,
+  rsm
