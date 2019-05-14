@@ -17,7 +17,8 @@
 #' rsm djoin
 #' rsm cube
 #' rsm foldover
-#' fsm star
+#' rsm star
+#' rsm dupe
 #'
 kccd<-function (basis, generators, blocks = "Block", n0 = 4, alpha = "orthogonal",
           wbreps = 1, bbreps = 1, randomize = TRUE, inscribed = FALSE,
