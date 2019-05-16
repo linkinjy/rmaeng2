@@ -18,4 +18,6 @@ Imports:
   dplyr,
   DescTools,
   rsm,
-  AlgDesign
+  AlgDesign,
+  qualityTools,
+  DoE.base
