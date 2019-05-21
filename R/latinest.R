@@ -31,7 +31,7 @@ latin.est<-function(formula,data,alpha,latin=TRUE,ro,co){
   if(indx[1]==0L)
     stop("a 'formula' argument is required")
   temp<-Call[c(1L,indx)]
-  temp[[1L]]<-quote(model.frame)
+  temp[[1L]]<-quote(stats::model.frame)
   m<-eval.parent(temp)
   Terms<-attr(m,"terms")
 
