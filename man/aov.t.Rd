@@ -4,7 +4,7 @@
 \alias{aov.t}
 \title{aov.t}
 \usage{
-aov.t(formula)
+aov.t(formula, ranfac = NULL, data)
 }
 \arguments{
 \item{formula}{}
