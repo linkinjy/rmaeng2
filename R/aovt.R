@@ -20,7 +20,7 @@
 #' stats anova
 #' stats lm
 #'
-aov.t<-function(formula, ranfac=NULL){
+aov.t<-function(formula, ranfac=NULL, data){
 
   if(is.null(ranfac)){
     anv<-summary(aov(formula))
