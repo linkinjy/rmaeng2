@@ -4,10 +4,11 @@
 \alias{dispersion}
 \title{dispersion}
 \usage{
-dispersion(formula, rc = TRUE, data, ranmodel)
+dispersion(formula, data, ranfac, rc = TRUE, sp = FALSE, nest = TRUE,
+  fac)
 }
 \arguments{
-\item{formula, rc, data, ranmodel}{}
+\item{formula, data, ranfac, fc, sp, nest, fac}{}
 }
 \value{
 result of dispersion

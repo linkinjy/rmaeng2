@@ -2,7 +2,7 @@
 #'
 #' estimation of dispersion
 #'
-#' @param formula,rc,data,ranmodel
+#' @param formula,data,ranfac,fc,sp,nest,fac
 #'
 #' @return result of dispersion
 #'
