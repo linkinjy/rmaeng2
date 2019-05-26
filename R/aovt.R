@@ -17,8 +17,43 @@
 #' @importFrom
 #' stats formula
 #' stats aov
+#' stats anova
+#' stats lm
 #'
-aov.t<-function(formula){
-s<-summary(aov(formula))
-print(s)
+aov.t<-function(formula, ranfac=NULL){
+
+  if(is.null(ranfac)){
+    anv<-summary(aov(formula))
+    anv<-do.call(rbind.data.frame, anv)
+    print(anv)
+  }else{
+    anv<-anova(lm(formula))
+    fac.name<-rownames(anv)
+
+    fac.main<-subset(fac.name, fac.name!='Residuals')
+    dele<-fac.main[grep(":", fac.main)]
+    for(d in dele) fac.main<-subset(fac.main, fac.main!=d)
+    fac.main<-subset(fac.main, fac.main!=ranfac)
+
+
+    for(f in fac.main){
+      raninter<-paste(f,":",ranfac, sep='')
+      raninter2<-paste(ranfac,":",f, sep='')
+
+      raninter<-subset(fac.name, fac.name==raninter)
+      raninter2<-subset(fac.name, fac.name==raninter2)
+
+      if(length(raninter)==0) raninter<-raninter2
+
+      if(length(raninter)==0){
+        anv[f,"F value"]<-anv[f,"Mean Sq"]/anv['Residuals',"Mean Sq"]
+        anv[f,"Pr(>F)"]<-1-pf(anv[f,"F value"], anv[f,"Df"], anv['Residuals',"Df"])
+      }else{
+        anv[f,"F value"]<-anv[f,"Mean Sq"]/anv[raninter,"Mean Sq"]
+        anv[f,"Pr(>F)"]<-1-pf(anv[f,"F value"], anv[f,"Df"], anv[raninter,"Df"])
+      }
+    }
+    print(anv)
+  }
+
 }
