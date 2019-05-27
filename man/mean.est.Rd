@@ -4,10 +4,10 @@
 \alias{mean.est}
 \title{mean.est}
 \usage{
-\method{mean}{est}(formula, data, factor, alpha)
+\method{mean}{est}(formula, data, factor, ranfac = NULL, alpha = 0.05)
 }
 \arguments{
-\item{formula, data, factor, alpha}{}
+\item{formula, data, factor, ranfac, alpha}{}
 }
 \value{
 population mean, graph
