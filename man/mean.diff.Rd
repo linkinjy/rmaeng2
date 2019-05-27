@@ -4,10 +4,11 @@
 \alias{mean.diff}
 \title{mean.diff}
 \usage{
-\method{mean}{diff}(formula, method = "lsd")
+\method{mean}{diff}(formula, method = "lsd", fac = NULL, two = FALSE,
+  ran = FALSE)
 }
 \arguments{
-\item{formula, method}{}
+\item{formula, method, fac, two, ran}{}
 }
 \value{
 diff,lwr.ci,upr,ci,p-value,ci plot
