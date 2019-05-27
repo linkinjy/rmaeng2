@@ -23,7 +23,7 @@
 #' DescTools PostHocTest
 
 mean.diff<-function(formula,method="lsd",fac=NULL,two=FALSE,ran=FALSE){
-  s<-aov(formula)
+  s<-suppressWarnings(aov(formula))
 
   if(ran==FALSE){
     if(method=="hsd"){
@@ -82,7 +82,7 @@ mean.diff<-function(formula,method="lsd",fac=NULL,two=FALSE,ran=FALSE){
         par(mfrow=c(1,2))
         plot(as)
       }else if(fac=="c"&&two==TRUE){
-        as<-PostHocTest(s,which=c("b","c"),method="hsd")
+        as<-PostHocTest(s,which=c("a","b"),method="hsd")
         print(as)
         par(mfrow=c(1,2))
         plot(as)
@@ -111,7 +111,7 @@ mean.diff<-function(formula,method="lsd",fac=NULL,two=FALSE,ran=FALSE){
         par(mfrow=c(1,2))
         plot(as)
       }else if(fac=="c"&&two==TRUE){
-        as<-PostHocTest(s,which=c("b","c"),method="bonferroni")
+        as<-PostHocTest(s,which=c("a","b"),method="bonferroni")
         print(as)
         par(mfrow=c(1,2))
         plot(as)
@@ -140,7 +140,7 @@ mean.diff<-function(formula,method="lsd",fac=NULL,two=FALSE,ran=FALSE){
         par(mfrow=c(1,2))
         plot(as)
       }else if(fac=="c"&&two==TRUE){
-        as<-PostHocTest(s,which=c("b","c"),method="scheffe")
+        as<-PostHocTest(s,which=c("a","b"),method="scheffe")
         print(as)
         par(mfrow=c(1,2))
         plot(as)
@@ -169,7 +169,7 @@ mean.diff<-function(formula,method="lsd",fac=NULL,two=FALSE,ran=FALSE){
         par(mfrow=c(1,2))
         plot(as)
       }else if(fac=="c"&&two==TRUE){
-        as<-PostHocTest(s,which=c("b","c"),method="duncan")
+        as<-PostHocTest(s,which=c("a","b"),method="duncan")
         print(as)
         par(mfrow=c(1,2))
         plot(as)
@@ -198,7 +198,7 @@ mean.diff<-function(formula,method="lsd",fac=NULL,two=FALSE,ran=FALSE){
         par(mfrow=c(1,2))
         plot(as)
       }else if(fac=="c"&&two==TRUE){
-        as<-PostHocTest(s,which=c("b","c"),method="newmankeuls")
+        as<-PostHocTest(s,which=c("a","b"),method="newmankeuls")
         print(as)
         par(mfrow=c(1,2))
         plot(as)
@@ -227,7 +227,7 @@ mean.diff<-function(formula,method="lsd",fac=NULL,two=FALSE,ran=FALSE){
         par(mfrow=c(1,2))
         plot(as)
       }else if(fac=="c"&&two==TRUE){
-        as<-PostHocTest(s,which=c("b","c"),method="lsd")
+        as<-PostHocTest(s,which=c("a","b"),method="lsd")
         print(as)
         par(mfrow=c(1,2))
         plot(as)
