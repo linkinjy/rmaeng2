@@ -21,6 +21,8 @@
 #' stats as.formula
 #' stats aggregate
 #' stats na.omit
+#' stats anova
+#' stats lm
 
 optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
   form<-as.formula(paste(x, paste(fac, collapse=" + "), sep=" ~ "))
@@ -34,8 +36,7 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
     sum(unlist(strsplit(x, split = "")) == letter)
   })
 
-  anv<-summary(aov(form))
-  anv<-do.call(rbind.data.frame, anv)
+  anv<-anova(lm(formula))
 
 
   fac.main<-factor(subset(fac, n.in==0))  #??ȿ??
@@ -80,7 +81,7 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
       for(m in max.in) fac.inter<-subset(fac.inter, fac.inter!=m) #???? ??ȣ?ۿ? ��?? ?? ??�� ????
 
       max.in<-gsub("\\*", '', max.in)
-      sp.in<-strsplit(max.in, split= "") #??ȣ?ۿ? ???κ??? ??????
+      sp.in<-strsplit(max.in, split= "")
       inter.n<-length(sp.in)
 
 
