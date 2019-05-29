@@ -2,7 +2,7 @@
 #'
 #' analysis of variance
 #'
-#' @param formula
+#' @param formula,ranfac
 #'
 #' @return aov(df,sumsq,meansq)
 #'
@@ -20,7 +20,7 @@
 #' stats anova
 #' stats lm
 #'
-aov.t<-function(formula, ranfac=NULL, data){
+aov.t<-function(formula, ranfac=NULL){
 
   if(is.null(ranfac)){
     anv<-summary(aov(formula))
@@ -30,30 +30,48 @@ aov.t<-function(formula, ranfac=NULL, data){
     anv<-anova(lm(formula))
     fac.name<-rownames(anv)
 
-    fac.main<-subset(fac.name, fac.name!='Residuals')
-    dele<-fac.main[grep(":", fac.main)]
-    for(d in dele) fac.main<-subset(fac.main, fac.main!=d)
-    fac.main<-subset(fac.main, fac.main!=ranfac)
+    fac<-subset(fac.name, fac.name!='Residuals')
+    ranin<-fac[grep(ranfac, fac)]
+    for(r in ranin) fac<-subset(fac, fac!=r)
 
 
-    for(f in fac.main){
-      raninter<-paste(f,":",ranfac, sep='')
-      raninter2<-paste(ranfac,":",f, sep='')
+    fac.inter<-fac[grep(":", fac)]
+    for(i in fac.inter) fac.main<-subset(fac, fac!=i)
+
+
+    for(m in fac.main){
+      raninter<-paste(m,":",ranfac, sep='')
+      raninter2<-paste(ranfac,":",m, sep='')
 
       raninter<-subset(fac.name, fac.name==raninter)
       raninter2<-subset(fac.name, fac.name==raninter2)
 
       if(length(raninter)==0) raninter<-raninter2
 
-      if(length(raninter)==0){
-        anv[f,"F value"]<-anv[f,"Mean Sq"]/anv['Residuals',"Mean Sq"]
-        anv[f,"Pr(>F)"]<-1-pf(anv[f,"F value"], anv[f,"Df"], anv['Residuals',"Df"])
-      }else{
-        anv[f,"F value"]<-anv[f,"Mean Sq"]/anv[raninter,"Mean Sq"]
-        anv[f,"Pr(>F)"]<-1-pf(anv[f,"F value"], anv[f,"Df"], anv[raninter,"Df"])
+      if(length(raninter)!=0){
+        anv[m,"F value"]<-anv[m,"Mean Sq"]/anv[raninter,"Mean Sq"]
+        anv[m,"Pr(>F)"]<-1-pf(anv[m,"F value"], anv[m,"Df"], anv[raninter,"Df"])
+      }
+    }
+    for(i in fac.inter){
+      inter.main<-strsplit(i, split= ":")
+
+      for(im in inter.main[[1]]) fac.main<-subset(fac.main, fac.main!=im) #???þ??? ????
+
+      if(length(fac.main)!=0)
+        for(f in fac.main) {
+          dele<-ranin[grep(f, ranin)]
+          for(d in dele) ranin<-subset(ranin, ranin!=d)
+        }
+
+      for(im in inter.main[[1]]) ranin<-ranin[grep(im, ranin)]
+      raninter<-subset(fac.name, fac.name==ranin)
+
+      if(length(raninter)!=0){
+        anv[i,"F value"]<-anv[i,"Mean Sq"]/anv[raninter,"Mean Sq"]
+        anv[i,"Pr(>F)"]<-1-pf(anv[i,"F value"], anv[f,"Df"], anv[raninter,"Df"])
       }
     }
     print(anv)
   }
-
 }

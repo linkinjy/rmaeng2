@@ -4,11 +4,10 @@
 \alias{mean.diff}
 \title{mean.diff}
 \usage{
-\method{mean}{diff}(formula, method = "lsd", fac = NULL, two = FALSE,
-  ran = FALSE)
+\method{mean}{diff}(data, formula, method = "lsd", ranfac = NULL)
 }
 \arguments{
-\item{formula, method, fac, two, ran}{}
+\item{data, formula, method, ranfac}{}
 }
 \value{
 diff,lwr.ci,upr,ci,p-value,ci plot
@@ -17,14 +16,10 @@ diff,lwr.ci,upr,ci,p-value,ci plot
 population mean difference
 }
 \examples{
-y1<-c(8.44,8.36,8.28)
-y2<-c(8.59,8.91,8.6)
-y3<-c(9.34,9.41,9.69)
-y4<-c(8.92,8.92,8.74)
-y <- c(y1, y2, y3,y4)
-n <- rep(3, 4)
-group <- rep(1:4, n)
-group<-as.factor(group)
-z<-data.frame(y,group)
+a<-as.factor(c(rep(1,9),rep(2,9),rep(3,9)))
+b<-as.factor(c(1,1,1,2,2,2,3,3,3,1,1,1,2,2,2,3,3,3,1,1,1,2,2,2,3,3,3))
+c<-as.factor(rep(c(1,2,3),9))
+y<-c(74,86,76,72,91,87,48,65,56,61,78,71,62,81,77,55,72,63,50,70,60,49,68,64,52,69,60)
+z<-data.frame(a,b,c,y)
 
 }

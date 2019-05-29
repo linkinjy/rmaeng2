@@ -4,10 +4,10 @@
 \alias{aov.t}
 \title{aov.t}
 \usage{
-aov.t(formula, ranfac = NULL, data)
+aov.t(formula, ranfac = NULL)
 }
 \arguments{
-\item{formula}{}
+\item{formula, ranfac}{}
 }
 \value{
 aov(df,sumsq,meansq)
