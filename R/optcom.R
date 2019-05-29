@@ -177,7 +177,7 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
     total<-nrow(data)
 
     f.df<-NULL
-    for(af in anvfac) f.df[af]<-anv[af,"Df"] #��???? ?????? ??��??
+    for(af in anvfac) f.df[af]<-anv[af,"Df"]
     ne<-total/sum(f.df)+1
 
     se<-qt(1-alpha/2,E)*sqrt(VE/ne)
