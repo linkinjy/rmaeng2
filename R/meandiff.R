@@ -17,6 +17,10 @@
 #'
 #' @importFrom
 #' DescTools PostHocTest
+#' stats aov
+#' stats lm
+#' stats anova
+#' graphics plot
 
 mean.diff<-function(data, formula, method="lsd", ranfac=NULL){
 
