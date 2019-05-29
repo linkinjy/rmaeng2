@@ -4,11 +4,10 @@
 \alias{disperaov}
 \title{disperaov}
 \usage{
-disperaov(formula, data, ranfac, rc = TRUE, sp = FALSE, nest = TRUE,
-  fac)
+disperaov(formula, data, nest = TRUE, fac)
 }
 \arguments{
-\item{formula, data, ranfac, rc, sp, nest, fac}{}
+\item{formula, data, nest, fac}{}
 }
 \value{
 aov of dispersion
