@@ -36,7 +36,7 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
     sum(unlist(strsplit(x, split = "")) == letter)
   })
 
-  anv<-anova(lm(formula))
+  anv<-anova(lm(form))
 
 
   fac.main<-factor(subset(fac, n.in==0))  #??ȿ??
