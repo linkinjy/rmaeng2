@@ -257,6 +257,8 @@ kdesign<-function (design, randomize = TRUE, replicates = 1){
         print(Replicate)
       odo = new("taguchiDesign")
       odo@design = design
+      .NAMES = LETTERS[c(1:8, 10:26)]
+      names(odo@design) = .NAMES[1:ncol(design)]
       odo@name = temp$id
       odo@designType = temp$type
       odo@replic = Replicate
