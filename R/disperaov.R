@@ -20,7 +20,7 @@
 #' stats lm
 #' stats anova
 
-dispersion <- function(formula, data, ranfac, rc=TRUE, sp=FALSE,nest=TRUE,fac){
+disperaov <- function(formula, data, ranfac, rc=TRUE, sp=FALSE,nest=TRUE,fac){
 
   Call<-match.call()
   indx<-match(c("formula","data"),names(Call),nomatch=0L)
