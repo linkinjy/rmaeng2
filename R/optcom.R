@@ -36,7 +36,6 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
     sum(unlist(strsplit(x, split = "")) == letter)
   })
 
-
   fac.main<-factor(subset(fac, n.in==0))
   fac.inter<-factor(subset(fac, n.in!=0))
 
