@@ -21,8 +21,7 @@
 #' stats as.formula
 #' stats aggregate
 #' stats na.omit
-#' stats anova
-#' stats lm
+#' stats aov
 
 optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
   form<-as.formula(paste(x, paste(fac, collapse=" + "), sep=" ~ "))
