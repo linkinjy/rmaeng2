@@ -36,7 +36,7 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
     sum(unlist(strsplit(x, split = "")) == letter)
   })
 
-  anv<-anova(lm(form))
+  anv<-anova(lm(form,data=data))
 
   fac.main<-factor(subset(fac, n.in==0))
   fac.inter<-factor(subset(fac, n.in!=0))
@@ -202,3 +202,7 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
   }
 
 }
+form<-as.formula(paste("y", paste(fac, collapse=" + "), sep=" ~ "))
+
+anova(lm(form,data=z))
+anova(lm(form))
