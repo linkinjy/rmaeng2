@@ -25,8 +25,7 @@
 #' stats anova
 
 optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
-  form<-as.formula(paste(x, paste(fac, collapse=" + "), sep=" ~ "))
-print(form)
+
   if(!is.null(ranfac)){
     ran<-fac[grep(ranfac, fac)]
     for(r in ran) fac<-subset(fac, fac!=r)
@@ -36,7 +35,7 @@ print(form)
     sum(unlist(strsplit(x, split = "")) == letter)
   })
 
-  anv<-anova(lm(form,data=data))
+  anv<-anova(lm(as.formula(paste(x, paste(fac, collapse=" + "), sep=" ~ ")),data=data))
 
   fac.main<-factor(subset(fac, n.in==0))
   fac.inter<-factor(subset(fac, n.in!=0))
