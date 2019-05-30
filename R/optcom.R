@@ -36,7 +36,8 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
     sum(unlist(strsplit(x, split = "")) == letter)
   })
 
-  anv<-anova(lm(form))
+  anv<-summary(aov(form))
+  anv<-do.call(rbind.data.frame, anv)
 
 
   fac.main<-factor(subset(fac, n.in==0))  #??ȿ??
@@ -81,7 +82,7 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
       for(m in max.in) fac.inter<-subset(fac.inter, fac.inter!=m) #???? ??ȣ?ۿ? ��?? ?? ??�� ????
 
       max.in<-gsub("\\*", '', max.in)
-      sp.in<-strsplit(max.in, split= "")
+      sp.in<-strsplit(max.in, split= "") #??ȣ?ۿ? ???κ??? ??????
       inter.n<-length(sp.in)
 
 
@@ -177,7 +178,7 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
     total<-nrow(data)
 
     f.df<-NULL
-    for(af in anvfac) f.df[af]<-anv[af,"Df"]
+    for(af in anvfac) f.df[af]<-anv[af,"Df"] #��???? ?????? ??��??
     ne<-total/sum(f.df)+1
 
     se<-qt(1-alpha/2,E)*sqrt(VE/ne)
