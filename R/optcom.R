@@ -36,7 +36,6 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
     sum(unlist(strsplit(x, split = "")) == letter)
   })
 
-  anv<-anova(lm(form,data=data))
 
   fac.main<-factor(subset(fac, n.in==0))
   fac.inter<-factor(subset(fac, n.in!=0))
@@ -167,16 +166,16 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
   }
 
   if(is.null(ranfac)){
-    fac.name<-rownames(anv)
+    fac.name<-rownames(anova(lm(form,data=data)))
     anvfac<-subset(fac.name, fac.name!=fac.name[grep("Residuals", fac.name)])
 
-    E<-anv["Residuals","Df"]
-    VE<-anv["Residuals","Mean Sq"]
+    E<-anova(lm(form,data=data))["Residuals","Df"]
+    VE<-anova(lm(form,data=data))["Residuals","Mean Sq"]
 
     total<-nrow(data)
 
     f.df<-NULL
-    for(af in anvfac) f.df[af]<-anv[af,"Df"]
+    for(af in anvfac) f.df[af]<-anova(lm(form,data=data))[af,"Df"]
     ne<-total/sum(f.df)+1
 
     se<-qt(1-alpha/2,E)*sqrt(VE/ne)
