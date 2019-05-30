@@ -202,7 +202,3 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
   }
 
 }
-form<-as.formula(paste("y", paste(fac, collapse=" + "), sep=" ~ "))
-
-anova(lm(form,data=z))
-anova(lm(form))
