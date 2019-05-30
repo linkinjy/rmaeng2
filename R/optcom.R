@@ -39,12 +39,12 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
   anv<-do.call(rbind.data.frame, anv)
 
 
-  fac.main<-factor(subset(fac, n.in==0))  #??ȿ??
-  fac.inter<-factor(subset(fac, n.in!=0)) #??ȣ?ۿ?
+  fac.main<-factor(subset(fac, n.in==0))
+  fac.inter<-factor(subset(fac, n.in!=0))
 
   ci.mean<-NULL
 
-  if(sum(n.in)==0){ ###??ȿ???? ��??
+  if(sum(n.in)==0){
 
     fac.mean<-NULL
     fac.max<-NULL
@@ -61,7 +61,7 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
     cat("Optimum level combination: \n")
     print(fac.max)
 
-  }else{ ###??ȣ?ۿ뵵 ��??
+  }else{
 
     n.in<-sapply(as.character(fac.inter), function(x, letter = "*"){
       sum(unlist(strsplit(x, split = "")) == letter)
@@ -76,9 +76,9 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
 
     main2<-NULL
     for(l in lv.in){
-      max.in<-names(subset(n.in, n.in==l)) #???? ???? ??ȣ?ۿ?
+      max.in<-names(subset(n.in, n.in==l))
 
-      for(m in max.in) fac.inter<-subset(fac.inter, fac.inter!=m) #???? ??ȣ?ۿ? ��?? ?? ??�� ????
+      for(m in max.in) fac.inter<-subset(fac.inter, fac.inter!=m)
 
       max.in<-gsub("\\*", '', max.in)
       sp.in<-strsplit(max.in, split= "")
@@ -98,7 +98,7 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
         ci.fac<-paste(sp.in[[i]], collapse="*")
 
         inter.form<-as.formula(paste(x, paste(sp.in[[i]], collapse=" + "), sep=" ~ "))
-        inter.mean<-aggregate(inter.form, data=data, mean) #???غ? ????
+        inter.mean<-aggregate(inter.form, data=data, mean)
 
         ci.mean[ci.fac]<-max(inter.mean[[x]]) ##############################################
 
@@ -107,7 +107,7 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
           inter.max[j]<-inter.mean[which.max(inter.mean[[x]]),j]
 
           for(k in 1:ncol(opt.data))
-            if(j==names(opt.data[k])) opt.data[max.in[i],k]<-inter.max[j] #???غ? ???? ?? ?ִ밪 Ʋ?? ?ֱ?
+            if(j==names(opt.data[k])) opt.data[max.in[i],k]<-inter.max[j]
         }
       }
 
@@ -120,16 +120,16 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
       for(a in nam$fac.main)
         for(b in sp.in)
           if(a==b) nam[which(nam$fac.main==a),] <- NA
-      nam<-na.omit(nam) #??ȣ?ۿ? ó?? ?? ??�� ??ȿ??
+      nam<-na.omit(nam)
 
       fac.inter2<-NULL
       for(n in nam$fac.main) {
         fac.inter2<-c(fac.inter2, grep(n, fac.inter))
       }
-      fac.inter<-unique(fac.inter[fac.inter2]) #??????ȣ?ۿ? ???? ??�� ?? ??�� ???? ???? ã??��??
+      fac.inter<-unique(fac.inter[fac.inter2])
     } #############################
 
-    main<-main[,order(names(main))] #?̸? ??��?? ��??
+    main<-main[,order(names(main))]
     for(f in fac.main) main[f]<-unique(na.omit(main[f]))
     main<-unique(main)
 
@@ -147,11 +147,11 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
     }
 
 
-    if(nrow(nam)==0){ #??ȣ?ۿ?ó?? ?? ??�� ??ȿ?? ??��
+    if(nrow(nam)==0){
       cat("Optimum level combination: \n")
       print(main)
 
-    }else{ #??ȣ?ۿ?ó?? ?? ??�� ??ȿ??
+    }else{
       for(n in nam$fac.main){
         nam.form<-as.formula(paste(x, paste(n, collapse=" + "), sep=" ~ "))
         nam.mean<-aggregate(nam.form, data=data, mean)
@@ -185,7 +185,7 @@ optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
     chl.inter<-paste(fac.main, collapse="*")
     chl<-subset(fac, fac==chl.inter)
 
-    if(length(chl)!=0){ #???? ???? ��??
+    if(length(chl)!=0){
       chl.mean<-max(inter.mean[[x]])
     }else{
       t.mean<-mean(data[[x]])
