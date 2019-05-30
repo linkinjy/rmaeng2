@@ -26,7 +26,7 @@
 
 optcom <- function(data, fac, ranfac=NULL, x, alpha=0.05){
   form<-as.formula(paste(x, paste(fac, collapse=" + "), sep=" ~ "))
-
+print(form)
   if(!is.null(ranfac)){
     ran<-fac[grep(ranfac, fac)]
     for(r in ran) fac<-subset(fac, fac!=r)
