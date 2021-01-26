@@ -1,6 +1,6 @@
 # rmaeng2
 
-The goal of rmaeng2 is to ...
+The goal of rmaeng2 is to provide students with free Design of Experiment program ....
 
 ## Installation
 
